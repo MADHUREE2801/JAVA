@@ -1,0 +1,39 @@
+class circle
+{
+    double x,y,r;
+    
+    double area()
+    {
+        
+        double a;
+        a=3.14*r*r;
+        return a;
+    }
+    
+    
+    circle()
+    {
+        r=7;
+    }
+    
+    circle(double x1,double y1)
+    {
+        this(); //always this has to be given first while calling the first constructor
+        x=x1;
+        y=y1;  
+   
+  //if this is used at the middle or bottom ,it throws error 
+        
+    }
+}
+
+
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         circle c1=new circle(1,2);
+        
+        System.out.println("area  is:"+c1.area());
+     }
+}

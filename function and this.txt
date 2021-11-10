@@ -1,0 +1,46 @@
+class circle
+{
+    double x,y,r;
+    void setpoint(double x,double y, double r)
+    {
+        this.x=x;
+        this.y=y;
+        this.r=r;
+    }
+    double area()
+    {
+        setpoint(1,1,1); //it doesn't give error although we   dont use this to call setpoint  .if we want we can use this
+        double a;
+        a=3.14*r*r;
+        return a;
+    }
+    
+    
+    circle()
+    {
+        r=7;
+    }
+    
+    circle(double x1,double y1)
+    {
+        this();
+        x=x1;
+        y=y1;
+        
+    }
+}
+
+
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         circle c=new circle();
+                
+        System.out.println("area is:"+c.area());
+        
+       */ circle c1=new circle(1,2);
+        
+        System.out.println("area 2 is:"+c1.area()); */
+     }
+}
