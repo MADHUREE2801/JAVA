@@ -1,0 +1,108 @@
+class classA extends Thread
+{
+    public void run()
+    {
+        
+        System.out.println("Start from thread A");
+        for(int i=1;i<=5;i++)
+        {
+            System.out.println("from thread A i:"+i);
+            if(i==1)
+            yield(); //it stops the currently executing thread and will give chance to other waiting thread of same priority.
+if in case there are no waiting threads or if all the waiting threads have low priority then same thread will continue its exexcution
+        }
+        
+        System.out.println("exiting from thread A");
+    }
+}
+
+
+
+class classB extends Thread
+{
+    public void run()
+    {
+        
+        System.out.println("Start from thread B");
+        for(int j=1;j<=5;j++)
+        {
+            System.out.println("from thread B j:"+j);
+            if(j==2)
+            stop();
+        }
+        
+        System.out.println("exiting from thread B");
+    }
+}
+
+
+
+
+class classC extends Thread
+{
+    public void run()
+    {
+        
+        System.out.println("Start from thread C");
+        for(int k=1;k<=5;k++)
+        {
+            System.out.println("from thread C k:"+k);
+            if(k==3)
+            {
+               
+               try
+               {
+                   sleep(1000);//1 sec.it stops the execution for a particular time
+               }
+               catch(Exception e)
+               {
+                   System.out.println("exception caught");
+               }
+               
+                           
+            }
+    
+        }
+        
+        System.out.println("exiting from thread C");
+    }
+}
+
+
+
+
+public class demonstration
+{
+    public static void main(String args[])
+    {
+        classA A=new classA();
+                classB B=new classB();
+
+        classC C=new classC();
+        A.start();
+        B.start();
+        C.start();
+        System.out.println("multithreading is over");
+
+    }
+}
+o/p:
+
+Start from thread A
+Start from thread B
+multithreading is over
+Start from thread C
+from thread A i:1
+from thread C k:1
+from thread A i:2
+from thread A i:3
+from thread A i:4
+from thread A i:5
+exiting from thread A
+from thread C k:2
+from thread B j:1
+from thread B j:2
+from thread C k:3
+from thread C k:4
+from thread C k:5
+exiting from thread C

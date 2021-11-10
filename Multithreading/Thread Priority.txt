@@ -1,0 +1,79 @@
+ class A extends Thread
+{
+    public void run()
+    {
+        System.out.println("Thread A started");
+        for(int i=1;i<=4;i++)
+        {
+            System.out.println("From thread A i:"+ i);
+        }
+        System.out.println("Thread A ends");
+    }
+    
+}
+ class B extends Thread
+{
+    public void run()
+    {
+        System.out.println("Thread B started");
+        for(int i=1;i<=4;i++)
+        {
+            System.out.println("From thread B i:"+ i);
+        }
+        System.out.println("Thread B ends");
+    }
+    
+}
+
+ class C extends Thread
+{
+    public void run()
+    {
+        System.out.println("Thread C started");
+        for(int i=1;i<=4;i++)
+        {
+            System.out.println("From thread C i:"+ i);
+        }
+        System.out.println("Thread C ends");
+    }
+    
+}
+
+public class ThreadPriority
+{
+    public static void  main(String args[])
+    {
+        A threadA=new A();
+        B threadB =new B();
+        C threadC=new C();
+        
+        threadC.setPriority(Thread.MAX_PRIORITY);
+        threadB.setPriority(threadA.getPriority()+1);
+        threadA.setPriority(Thread.MIN_PRIORITY);
+        
+        threadA.start();
+        threadB.start();
+        threadC.start();
+    }
+}
+
+
+o/p:
+Thread A started
+Thread B started
+Thread C started
+From thread C i:1
+From thread C i:2
+From thread C i:3
+From thread C i:4
+From thread B i:1
+Thread C ends
+From thread B i:2
+From thread B i:3
+From thread B i:4
+Thread B ends
+From thread A i:1
+From thread A i:2
+From thread A i:3
+From thread A i:4
+Thread A ends

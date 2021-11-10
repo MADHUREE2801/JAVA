@@ -1,0 +1,84 @@
+class Account
+{
+    public int balance;
+    public int accountno;
+    
+    void displaybalance()
+    {
+        System.out.println("account_no:"+accountno+"balance:"+balance);
+    }
+    
+    synchronized void deposit(int amount)
+    {
+        balance=balance+amount;
+        System.out.println("amount is deposited");
+        displaybalance();
+    }
+    synchronized void withdraw(int amount)
+    {
+        balance=balance-amount;
+        System.out.println("amount is withdraw");
+        displaybalance();
+    }
+}
+
+class transactiondeposit implements Runnable
+{
+  int amount;
+  Account accountx;
+  
+  transactiondeposit(Account x,int amount)
+  { 
+      accountx=x;
+      this.amount=amount;
+      
+      Thread t=new Thread(this);
+      t.start();
+
+  }
+  public void run()
+  {
+      accountx.deposit(amount);
+  }
+
+}
+
+class transactionwithdraw implements Runnable
+{
+  int amount;
+  Account accountx;
+  
+  transactionwithdraw(Account x,int amount)
+  { 
+      accountx=x;
+      this.amount=amount;
+      
+      Thread t=new Thread(this);
+      t.start();
+
+  }
+  public void run()
+  {
+      accountx.withdraw(amount);
+  }
+
+}
+
+public class demonstration
+{
+    public static void main(String args[])
+    {
+        Account ABC=new Account();
+        ABC.balance=1000;
+        ABC.accountno=111;
+        transactiondeposit t1=new transactiondeposit(ABC,500);
+        transactionwithdraw t2=new transactionwithdraw(ABC,900);
+        
+    }
+}
+
+o/p:
+amount is deposited
+account_no:111balance:1500
+amount is withdraw
+account_no:111balance:600

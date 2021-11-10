@@ -1,0 +1,61 @@
+class ThreadA extends Thread
+{
+    public void run()
+    {
+        try
+        {
+            System.out.println("first thread starts running");
+            sleep(10000); //10 seconds sleep
+            System.out.println("firest thread fininshes running");
+        }
+        catch(Exception e)
+        {
+            
+        }
+    }
+}
+
+
+class ThreadB extends Thread
+{
+    public void run()
+    {
+     try
+     {
+         System.out.println("second thread starts running");
+         System.out.println("second thread suspended itself");
+         suspend();
+         System.out.println("second thread runs again");
+     }
+     
+     catch(Exception e)
+     {
+         
+     }
+    }
+}
+
+
+public  class Demonstration
+{
+    public static void main(String args[])
+    {
+        try
+        {
+            ThreadA t1=new ThreadA();
+            ThreadB t2=new ThreadB();
+            
+            t1.start();
+            t2.start();
+            
+            System.out.println("Revive the second thread");
+            t2.resume();
+            
+            System.out.println("Second thread went for 10 sec sleep");
+            t2.sleep(10000);
+        }
+        
+        catch(Exception e)
+        {}
+    }
+}
