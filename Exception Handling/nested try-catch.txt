@@ -1,0 +1,67 @@
+public class stud
+{
+    public static void main(String args[])
+    {
+        int a=args.length;
+        
+        try
+        {
+            
+        int b=42/a ;// divide by zero error if there are no command line arguements
+
+        System.out.println(b);
+        
+        if(a==1)
+        {
+            a=a/(a-a); //divide by zero error
+        }
+        
+        try
+        {
+            if(a==2)
+            {
+                int c[]={1};
+                c[2]=a;//array index out of bounds error
+            }
+        }
+            
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("array out of bounds ");
+        }
+        
+        
+        }
+        
+        
+        catch(ArithmeticException e)
+        {
+            
+            System.out.println("divide by zero error");
+        }
+            
+        
+        
+        
+        System.out.println(a);
+
+
+
+
+
+
+    }
+    
+    
+    
+    
+    
+}
+
+input:
+1 2
+output:
+
+21
+array out of bounds 
+2

@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class TestException
+{
+    public static void main(String args[])
+    {
+        int a,b,c;
+        int x,y;
+        System.out.println("Enter 3 numbers:");
+        Scanner s=new Scanner(System.in);
+        a=s.nextInt();
+        b=s.nextInt();
+
+        c=s.nextInt();
+        
+        
+        try
+        {
+            x=a/(b-c);
+            System.out.println("x= "+x);
+        }
+        
+        catch(ArithmeticException e)
+        {
+            System.out.println("b=c: divide by zero error");
+        }
+        
+        y=a/(b+c);
+        
+        System.out.println("y= "+y);
+    }
+}
+
+input:
+10 5 5
+
+output:
+b=c:divide by zero error

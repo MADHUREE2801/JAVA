@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class dividebyzero
+{
+    static int fun(int x,int y)
+    {
+        try
+        {
+            int r=x/y;
+            return r;
+        }
+        
+        catch(ArithmeticException e)
+        {
+            System.out.println("a=x/y is bypassed: enetr y as non zero");
+            return -1;
+        }
+    }
+
+
+
+
+
+  public static void main(String args[])
+  {
+      int a,b,result;
+      System.out.println("enter 2 values:");
+      Scanner s=new Scanner(System.in);
+      a=s.nextInt();
+      b=s.nextInt();
+      result=fun(a,b);
+      System.out.println(result);
+  }
+}
+
+input:
+
+5 0
+
+output:
+a=x/y is bypassed: enetr y as non zero

@@ -1,0 +1,36 @@
+public class finallydemo
+{
+    public static void main(String args[])
+    {
+        int i=0;
+        String greetings[]={"Hello twinkle","Hello java","Hello world"};
+        while(i<4)
+        {
+            try
+            {
+                System.out.println(greetings[i++]);
+            }
+            catch (Exception e)
+            {
+            System.out.println(e.getMessage());       
+            }
+            
+            finally
+            {
+                System.out.println("You should quit and reset index value <3");
+            }
+        }
+    }
+}
+
+
+output:
+
+Hello twinkle
+You should quit and reset index value <3
+Hello java
+You should quit and reset index value <3
+Hello world
+You should quit and reset index value <3
+Index 3 out of bounds for length 3
+You should quit and reset index value <3

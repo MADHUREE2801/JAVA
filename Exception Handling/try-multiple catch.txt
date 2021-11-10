@@ -1,0 +1,42 @@
+public class multicatch
+{
+    public static void main(String args[])
+    {
+        int i=args.length;
+        try
+        {
+        String mystring[]=new String [i];// #1 if i=0 my string null pointer error
+        
+        if(args[0].equals("java"))
+        {
+            System.out.println("First word is java");
+        }
+        
+        System.out.println("Nmber of arguements"+i);
+        int x=18/i;// #2 divide by zero error
+        int y[]={555,999}; //y is an array of size 2 index 0,1
+        y[i]=x;//#3 index is out-of-range my occur if i>1
+    
+    
+        }
+        
+        
+        
+        catch(NullPointerException e)// to catch the error at #1
+        {
+            System.out.println("A null pointer exception");
+        }
+        
+        catch(ArithmeticException e)// to catch the error at #2 
+        {
+            System.out.println("Divide by zero");
+        }
+        
+        catch(ArrayIndexOutOfBoundsException e)//to catch the error at # 3
+        {
+            
+            System.out.println("array index oobe");
+        }
+    }
+    
+}
