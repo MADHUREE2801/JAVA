@@ -1,0 +1,50 @@
+
+
+//multiple inheritance
+
+class A
+{
+    protected int i=10;
+    void display1()
+    {
+        System.out.println("i am class A "+i);
+    }
+}
+
+interface i1
+{
+    int j=20;//public,abstract and final by default
+    void display2();//public and static by default
+}
+
+interface i2
+{
+    int k=30;//public,static,final by default
+    void display3();//public,abstract by default
+}
+
+public class B extends A implements i1,i2
+{
+     public void display2()
+     {
+         System.out.println("i am from interface i "+j);
+     }
+     
+     public void display3()
+     {
+         
+         System.out.println("I AM FROM INTERFACE I2 "+k);
+     }
+    public void printB()
+    {
+        display1();
+        display2();
+        display3();
+    }
+    
+    public static void main(String args[])
+    {
+        B b=new B();
+        b.printB();
+    }
+}

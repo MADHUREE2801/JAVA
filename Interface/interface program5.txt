@@ -1,0 +1,31 @@
+//hierarchical inheritance
+
+interface i1
+{
+    int x=10;//public,static,final by default
+    void display1();//public,abstract by default
+}
+
+interface i2 extends i1
+{
+    int y=20;//public,static,final by default
+    void display2();//public,abstract by default
+}
+
+public class stud implements i2
+{
+    public void display1()
+    {
+        System.out.println(x);
+    }
+    public void display2()
+    {
+        System.out.println(y);
+    }
+    public static void main(String args[])
+    {
+        stud s=new stud();
+        s.display1();
+        s.display2();
+    }
+}

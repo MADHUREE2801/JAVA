@@ -1,0 +1,39 @@
+//multiple inheritance
+
+interface i1
+{
+    int x=10;//public,static,final by default
+    void display1();//public,abstract by default
+}
+
+interface i2
+{
+    int y=20;//public,static,final by default
+    void display2();//public,abstract by default
+}
+
+public class stud implements i1,i2
+{
+    int a=999;
+    
+    public void display1()
+    {
+        System.out.println("I AM FROM i1 "+x);
+    }
+    public void display2()
+    {
+        System.out.println("i am from i2 "+y);
+    }
+    
+    public void display3()
+    {
+        System.out.println("I am from stud "+a);
+    }
+    public static void main(String args[])
+    {
+        stud s=new stud();
+        s.display1();
+        s.display2();
+        s.display3();
+    }
+}

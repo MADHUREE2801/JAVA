@@ -1,0 +1,32 @@
+interface i1
+{
+    public static final double pi=3.1417;
+     static final double lambda=0.04;//public by default
+     
+   int x;//declaration of instance class variable is not possible in interface
+    
+    int x=100;//public,static and final by default
+    
+    void method2();//public and abstract by default
+}
+
+public class maths implements i1
+{
+    public void method1()
+    {
+        System.out.println(pi);
+    }
+    
+    public void method2()
+    {
+        System.out.println(lambda);
+    }
+    
+    public static void main(String args[])
+    {
+        maths m=new maths();
+        m.method1();
+        m.method2();
+    }
+    
+}

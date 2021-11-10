@@ -1,0 +1,36 @@
+// alternate way of implementing multiple inheritance
+
+class A
+{
+    protected int i=10;
+    void display1()
+    {
+        System.out.println("i am class A "+i);
+    }
+}
+
+interface i
+{
+    int j=20;//public,abstract and final by default
+    void display2();//public and static by default
+}
+
+public class B extends A implements i
+{
+     public void display2()
+     {
+         System.out.println("i am from interface i "+j);
+     }
+     
+    public void printB()
+    {
+        display1();
+        display2();
+    }
+    
+    public static void main(String args[])
+    {
+        B b=new B();
+        b.printB();
+    }
+}

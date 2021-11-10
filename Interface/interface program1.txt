@@ -1,0 +1,18 @@
+interface stud
+{
+    int a=10;//public,static and final by default
+    void display();//public and abstract by default
+}
+
+ public class teacher implements stud
+{
+    public void display()
+    {
+        System.out.println(a);
+    }
+    public static void main(String args[])
+    {
+        teacher t= new teacher();
+        t.display();
+    }
+}

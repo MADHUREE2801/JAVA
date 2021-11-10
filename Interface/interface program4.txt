@@ -1,0 +1,17 @@
+abstract class stud
+{
+    public static int a=100;
+    void display()//non abstract
+    {
+        System.out.print(a);
+    }
+    
+}
+
+interface i1 implements stud// interface cannot implement class as well as an abstract class
+{
+    public void display()
+    {
+        System.out.print(a);
+    }
+}

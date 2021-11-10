@@ -1,0 +1,32 @@
+interface stud
+{
+    int a=10;// public,static,final by default
+    void display();//public,abstract by default
+}
+
+public class person implements stud
+{
+    public void display()
+    {
+        System.out.println(a);
+    }
+    public static void main(String args[])
+
+    {
+       stud s=new stud();//  error: instantiation is not posiible for interface(becoz stud is abstract)
+      
+        
+        stud s1;//declaration is possible for interface
+        person p=new person();
+        s1=p;
+        s1.display();
+        
+       
+       
+        stud s2[]=new stud[3];//array declaration is possible for interface
+        
+
+        
+        
+    }
+}
