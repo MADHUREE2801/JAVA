@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;  //for StringTokenizer
+
+public class inventory
+{
+    static DataInputStream din=new DataInputStream(System.in); //reads from the user
+    static StringTokenizer st;
+    
+    public static void main(String args[])
+    {
+        try
+        {
+            
+        DataOutputStream dos=new DataOutputStream(new FileOutputStream("invent.dat"));
+        
+        System.out.println("Enter code number:");
+        
+        st=new StringTokenizer(din. readLine());//500
+        int code=  Integer.parseInt(st.nextToken());
+        
+        System.out.println("Enter no of items:");
+        
+        st=new StringTokenizer(din.readLine());//5
+        int items= Integer.parseInt(st.nextToken());
+        
+        System.out.println("Enter the cost:");
+        
+        st=new StringTokenizer(din.readLine());//2
+        Double cost= new Double(st.nextToken()).doubleValue();
+      //writing into a file   
+        dos.writeInt(code);
+        dos.writeInt(items);
+        dos.writeDouble(cost);
+        dos.close();
+        
+        //reading from a file
+        DataInputStream dis=new DataInputStream(new FileInputStream("invent.dat"));
+        int codenumber=dis.readInt();
+        int totalitems=dis.readInt();
+        double itemcost=dis.readDouble();
+        double totalcost=totalitems*itemcost;
+        dis.close();
+        System.out.println();
+        System.out.println("code number"+codenumber);
+        System.out.println("itemcost"+itemcost);
+        System.out.println("totalitems"+totalitems);
+        System.out.println("total cose"+totalcost);
+        
+       }
+       
+       catch(IOException ioe)
+       {
+           System.out.println(ioe);
+       }
+    
+    }
+}
+

@@ -1,0 +1,21 @@
+import java.io.*;
+public class demo
+{
+    public static void main(String args[])
+    {
+        RandomAccessFile  f;
+        try
+        {
+        f=new RandomAccessFile("ran.dat","rw");
+        f.seek(f.length()); //Goes to the end of file
+        f.writeByte("mumbai\n");
+        f.close();
+        }
+        
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
+        
+    }
+}

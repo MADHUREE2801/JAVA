@@ -1,0 +1,43 @@
+import java.io.*;
+public class RandomIO
+{
+    public static void main(String args[])
+    {
+        RandomAccessFile file=null;
+        
+        try
+        {
+            file=new RandomAccessFile("rand.dat","rw");
+            file.writeChar('X');
+            file.writeInt(555);
+            file.writeDouble(3.1412);
+            file.seek(0);// seek() moves the file pointer to the specified position in the file.here it moves to the beginning pf the file
+            
+            System.out.println(file.readChar());  //X
+            System.out.println(file.readInt());// 555
+            System.out.println(file.readDouble()); //3.1412
+            file.seek(2);
+             System.out.println(file.readInt()); //555
+             file.seek(file.length());
+             file.writeBoolean(false);
+             file.seek(4);
+             System.out.println(file.readBoolean());
+             file.close();
+             
+
+        }
+        
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+o/p:
+
+X
+555
+3.1412
+555
+true

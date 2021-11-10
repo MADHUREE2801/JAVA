@@ -1,0 +1,24 @@
+import java.io.*;
+public class demonstration
+{
+    public static void main(String args[])
+    {
+        float principleamount;
+        float rate;
+        float num;
+        DataInputStream in=new DataInputStream(System.in);
+        String tempstring;
+        System.out.println("enter the principle amount:");
+        System.out.flush();
+        tempstring=in.readLine();
+        principleamount=Float.valueOf(tempstring);
+        System.out.println("enter the rate of interest:");
+        tempstring=in.readLine();
+        rate=Float.valueOf(tempstring);
+        System.out.println("Enter the no of years:");
+        tempstring=in.readLine();
+        num=Float.valueOf(tempstring);
+        float interest=principleamount*num*rate;
+        System.out.println("simple interest"+interest);
+    }
+}
